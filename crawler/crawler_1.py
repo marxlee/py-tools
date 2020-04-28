@@ -1,6 +1,8 @@
 
 import time
 from urllib import request
+from urllib.parse import urljoin
+
 import random
 import ssl
 
@@ -28,16 +30,51 @@ headers = {
 agent = random.choice(agent_list)
 headers['User-Agent'] = agent
 
-url = r'https://www.qiushibaike.com/text/page/2/'
-req = request.Request(url=url, headers=headers)
+# url = r'http://www.xiaoyuezhang.com/index.html'
+# url = r'http://www.redspite.com/cv'
+def multi_url():
+    req = None
+    for i in range(1, 9):
+        url_s = ('http://www.xiaoyuezhang.com/image/0%d.jpg' % i)
+        print(url_s)
+        url = url_s
+        req = request.Request(url=url, headers=headers)
+        context = ssl._create_unverified_context()
+        respo = request.urlopen(req, context=context)
+        data = respo.read()
+        print(type(data))
+        # print(data)
+        w_url = ('../dist/file/image/0%d.jpg' % i)
+        with open(w_url, 'w+b') as f1:
+            f1.write(data)
+
+# services-bg.jpg
+
+def single_url():
+    file_name = 'achivements-bg.jpg'
+    url_s = 'http://www.xiaoyuezhang.com/image/'
+    fill_url = urljoin(url_s, file_name)
+    print(fill_url)
+    url = fill_url
+    req = request.Request(url=url, headers=headers)
+    context = ssl._create_unverified_context()
+    respo = request.urlopen(req, context=context)
+    data = respo.read()
+    print(type(data))
+    # print(data)
+    w_url = '../dist/file/image/' + file_name
+    with open(w_url, 'w+b') as f1:
+        f1.write(data)
 
 
-context = ssl._create_unverified_context()
-
-respo = request.urlopen(req, context=context)
 # 整页读取
-data = respo.read().decode('utf-8')
-print(data)
+# data = respo.read().decode('utf-8')
+# print(data)
+
+# data = respo.readlines()
+# print(data)
+# with open('../dist/file/image/', 'wr') as f1:
+#     f1.write(data)
 
 # 多行读取
 # datas = respo.readlines()
@@ -57,7 +94,7 @@ req.quote(url)
 '''
 
 
-url = r'https://www.qiushibaike.com/text/page/2/'
+# url = r'https://www.qiushibaike.com/text/page/2/'
 # request.urlopen(url)
 # new_url = request.quote(url)
 # print(new_url)
@@ -67,11 +104,13 @@ url = r'https://www.qiushibaike.com/text/page/2/'
 # 写入文件
 # request.urlretrieve(url=url, filename=r'/Users/libinbin/tmp/workspace_pycharm/MachineLearn/python-baseline/base1/files/baidu_html.html')
 # 清理缓存
-request.urlcleanup()
+# request.urlcleanup()
 
 
 
 if __name__ == '__main__':
+    single_url()
+    # multi_url()
     pass
 
 
