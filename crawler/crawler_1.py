@@ -30,81 +30,29 @@ headers = {
 agent = random.choice(agent_list)
 headers['User-Agent'] = agent
 
-# url = r'http://www.xiaoyuezhang.com/index.html'
-# url = r'http://www.redspite.com/cv'
-def multi_url():
+def multi_url(r_url, w_url):
     req = None
     for i in range(1, 9):
-        url_s = ('http://www.xiaoyuezhang.com/image/0%d.jpg' % i)
-        print(url_s)
-        url = url_s
+        str = i+'.jpg'
+        url = urljoin(r_url, str)
         req = request.Request(url=url, headers=headers)
         context = ssl._create_unverified_context()
         respo = request.urlopen(req, context=context)
         data = respo.read()
-        print(type(data))
-        # print(data)
-        w_url = ('../dist/file/image/0%d.jpg' % i)
-        with open(w_url, 'w+b') as f1:
+        wr_url = urljoin(w_url, str)
+        with open(wr_url, 'w+b') as f1:
             f1.write(data)
 
-# services-bg.jpg
 
-def single_url():
-    file_name = 'achivements-bg.jpg'
-    url_s = 'http://www.xiaoyuezhang.com/image/'
-    fill_url = urljoin(url_s, file_name)
-    print(fill_url)
-    url = fill_url
+def single_url(r_url, w_url):
+    url = r_url
     req = request.Request(url=url, headers=headers)
     context = ssl._create_unverified_context()
     respo = request.urlopen(req, context=context)
     data = respo.read()
     print(type(data))
-    # print(data)
-    w_url = '../dist/file/image/' + file_name
     with open(w_url, 'w+b') as f1:
         f1.write(data)
-
-
-# 整页读取
-# data = respo.read().decode('utf-8')
-# print(data)
-
-# data = respo.readlines()
-# print(data)
-# with open('../dist/file/image/', 'wr') as f1:
-#     f1.write(data)
-
-# 多行读取
-# datas = respo.readlines()
-# print(datas)
-
-
-'''
-# 解码url中的编码字段, 转义成为中文
-req.unquote(url)
-
-# 编码url中的中文
-req.quote(url)
-
-
-
-
-'''
-
-
-# url = r'https://www.qiushibaike.com/text/page/2/'
-# request.urlopen(url)
-# new_url = request.quote(url)
-# print(new_url)
-# new_url = request.unquote(new_url)
-# print(new_url)
-
-# 写入文件
-# request.urlretrieve(url=url, filename=r'/Users/libinbin/tmp/workspace_pycharm/MachineLearn/python-baseline/base1/files/baidu_html.html')
-# 清理缓存
-# request.urlcleanup()
 
 
 
