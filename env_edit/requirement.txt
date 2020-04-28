@@ -1,0 +1,6 @@
+# yum 安装软件
+
+yum install -y mariadb.service mariadb
+
+yum install -y nginx
+
