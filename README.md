@@ -13,7 +13,7 @@ pip install -r requirement.txt
 * html
 
 ## 云台机服务器环境配置
-* dist
+* env_edit
 
 ## 数据库操作
 * mysql
