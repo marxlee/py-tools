@@ -1,7 +1,6 @@
-nginx部署静态页网站
+# nginx部署静态页网站
 
-
-
+```
 yum install -y nginx
 
 # 启动
@@ -23,7 +22,7 @@ vi /etc/nginx/nginx.conf
 # 修改位置
 http{} --> server --> root 对应到nginx代理的目录
 
-
+```
 
 
 

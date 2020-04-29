@@ -1,5 +1,6 @@
 # git 常用命令direction
 
+```
 # 查看git当前分支下的状态信息
 git status
 
@@ -25,6 +26,13 @@ git switch <branch_name>
 # 合并分支代码
 git merge <branch_name>
 
+
+
+
+
+
+
+```
 
 
 

@@ -1,6 +1,6 @@
-pip镜像
+# pip镜像
 
-
+```
 [Mac]
 1. 系统目录下创建: .pip  # 隐藏文件夹
 
@@ -27,3 +27,4 @@ index-url=https://pypi.doubanio.com/simple
 #index-url = http://mirrors.tencentyun.com/pypi/simple
 #trusted-host = mirrors.tencentyun.com
 
+```

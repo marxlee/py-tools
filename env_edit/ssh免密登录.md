@@ -1,6 +1,6 @@
-## ssh 免密登录
+# ssh 免密登录
 
-
+```
 # 首先, local机器下生成ssh-key, 回到登录用户目录下
 
 
@@ -25,7 +25,7 @@ cat authorized_keys
 # 登录
 ssh root@ip
 
-
+```
 
 
 

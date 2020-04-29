@@ -1,5 +1,6 @@
 # vim 编辑器参数设定
 
+```
 # 用户目录下: pwd
 # /home/user
 # 如果你是root用户那么路径
@@ -21,3 +22,4 @@ set autoindent
 set ruler
 set nohls
 
+```
