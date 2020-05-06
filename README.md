@@ -18,6 +18,9 @@ pip install -r requirement.txt
 ## 数据库操作
 * mysql
 
+## redis
+* redis
+
 
 
 
