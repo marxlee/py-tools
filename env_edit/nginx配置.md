@@ -22,6 +22,11 @@ vi /etc/nginx/nginx.conf
 # 修改位置
 http{} --> server --> root 对应到nginx代理的目录
 
+
+# 查看nginx端口信息
+ps -ef | grep nginx
+
+
 ```
 
 
